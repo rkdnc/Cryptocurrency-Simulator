@@ -5,22 +5,84 @@
 <head>
     <title>Cyrptocurrency Exchange</title>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
 
 <style>
-    #header {
+    body {
         background: #005A31;
+    }
+
+    .navbar {
+        background: rgb(120, 145, 21);
+    }
+
+    #headFont {
+        color: rgb(2, 70, 38);
+    }
+
+    #game {
+        background: #F3FAB6;
+        margin-top: 40px;
     }
 </style>
 
 <body>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <div class="container">
-        <div class="col-md-12" id="header">
-            <h1>Cyrptocurrency Exchange!</h1>
-            <p id="login">Login</p>
+        <div class="col-md-12" id="navbar">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container">
+                    <h1 id="headFont">Cryptocurrency Exchange!</h1>
+                    <input id="txtEmail" type="email" placeholder="Email">
+
+                    <input id="txtPassword" type="password" placeholder="Password">
+
+                    <button id="btnLogin" class="btn btn-action">
+                        Log in
+                    </button>
+
+                    <button id="btnSignUp" class="btn btn-secondary">
+                        Sign Up
+                    </button>
+
+                    <button id="btnLogout" class="btn btn-hide">
+                        Log out
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-md-10" id="game">
+            <p>Hey</p>
         </div>
     </div>
 
+    <!-- <div class="container">
+        <input id="txtEmail" type="email" placeholder="Email">
+
+        <input id="txtPassword" type="password" placeholder="Password">
+
+        <button id="btnLogin" class="btn btn-action">
+            Log in
+        </button>
+
+        <button id="btnSignUp" class="btn btn-secondary">
+            Sign Up
+        </button>
+
+        <button id="btnLogout" class="btn btn-hide">
+            Log out
+        </button>
+    </div> -->
+
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container">
+              
+            </div>
+          </nav>
+    <script src="app.js"></script>
 
 </body>
 
@@ -28,4 +90,3 @@
 <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
 
 </html>
-
