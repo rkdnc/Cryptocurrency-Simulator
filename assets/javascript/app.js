@@ -52,13 +52,22 @@ btnLogout.on("click", function(event){
  firebase.auth().onAuthStateChanged(firebaseUser =>{ //Also holy sh*t you can use => for functions
     if(firebaseUser) {
         console.log(firebaseUser);
-        btnLogin.css("display", "inline")
+        btnLogout.css("display", "inline");
+        btnLogin.css("display", "none");
+        btnSignUp.css("display", "none");
     } else{
         console.log("not logged in");
-        btnLogin.css("display", "none")
+        btnLogout.css("display", "none");
+        btnLogin.css("display", "inline");
     }
  })
- 
+//---------------Login System------------
+//--------------API information----------
+//BTC API
+var btcQueryUrl = "https://api.coinmarketcap.com/v1/ticker/bitcoin/";
+
+
+
 
 
 
