@@ -24,61 +24,83 @@
 
     #game {
         background: #F3FAB6;
-        margin-top: 40px;
+        margin-top: 150px;
     }
 </style>
 
 <body>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <div class="container">
-        <div class="col-md-12" id="navbar">
-            <nav class="navbar navbar-default navbar-fixed-top">
-                <div class="container">
-                    <h1 id="headFont">Cryptocurrency Exchange!</h1>
-                    <input id="txtEmail" type="email" placeholder="Email">
+    <div class="row">
+        <div class="container">
+            <div class="col-md-12" id="navbar">
+                <nav class="navbar navbar-default navbar-fixed-top">
+                    <div class="container">
+                        <h1 id="headFont">Cryptocurrency Exchange!</h1>
+                        <input id="txtEmail" type="email" placeholder="Email">
 
-                    <input id="txtPassword" type="password" placeholder="Password">
+                        <input id="txtPassword" type="password" placeholder="Password">
 
-                    <button id="btnLogin" class="btn btn-action">
-                        Log in
-                    </button>
+                        <button id="btnLogin" class="btn btn-action">
+                            Log in
+                        </button>
 
-                    <button id="btnSignUp" class="btn btn-secondary">
-                        Sign Up
-                    </button>
+                        <button id="btnSignUp" class="btn btn-secondary">
+                            Sign Up
+                        </button>
 
-                    <button id="btnLogout" class="btn btn-hide">
-                        Log out
-                    </button>
-                </div>
-            </nav>
+                        <button id="btnLogout" class="btn btn-hide">
+                            Log out
+                        </button>
+                    </div>
+                </nav>
+            </div>
         </div>
     </div>
     <div class="container">
-        <div class="col-md-10" id="game">
-            <p>Hey</p>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10" id="game">
+                    <!-- <div class="panel panel-default">
+                            <div class="panel-heading">Panel heading without title</div>
+                            <div class="panel-body">
+                              Panel content
+                            </div>
+                          </div>
+                          
+                          <div class="panel panel-default">
+                            <div class="panel-heading">
+                              <h3 class="panel-title">Panel title</h3>
+                            </div>
+                            <div class="panel-body">
+                              Panel content
+                            </div>
+                          </div> -->
+                          <style>
+                                #currency {
+                                    background-color: Teal;
+                                    border-style: rounded;
+                                    border-radius: 10px;
+                                }
+                                #currency:hover {
+                                    background-color: green;
+                                }
+                                img {
+                                    width: 100px;
+                                    height: 100px;
+                                }
+                                </style>
+                                <div id="currency">
+                                    <img src="https://bitcoin.org/img/icons/opengraph.png">
+                                    <h2>Bitcoin</h2>
+                                    <h3>12% ^</h3>
+                                </div>
+            </div>
+            <div class="col-md-1"></div>
         </div>
     </div>
-
-    <!-- <div class="container">
-        <input id="txtEmail" type="email" placeholder="Email">
-
-        <input id="txtPassword" type="password" placeholder="Password">
-
-        <button id="btnLogin" class="btn btn-action">
-            Log in
-        </button>
-
-        <button id="btnSignUp" class="btn btn-secondary">
-            Sign Up
-        </button>
-
-        <button id="btnLogout" class="btn btn-hide">
-            Log out
-        </button>
-    </div> -->
 
     <nav class="navbar navbar-default navbar-fixed-bottom">
+
             <div class="container">
               
             </div>
@@ -88,6 +110,7 @@
     <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
     <script src="assets/javascript/app.js"></script>
 </body>
+
 
 
 
