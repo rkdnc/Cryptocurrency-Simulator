@@ -42,6 +42,7 @@
             <div class="col-md-12" id="navbar">
                 <nav class="navbar navbar-default navbar-fixed-top">
                     <div class="container">
+                        <!-- Begin login system -->
                         <h1 id="headFont">Cryptocurrency Exchange!</h1>
                         <input id="txtEmail" type="email" placeholder="Email">
 
@@ -59,6 +60,7 @@
                             Log out
                         </button>
                     </div>
+                    <!-- End login system -->
                 </nav>
             </div>
         </div>
@@ -67,15 +69,15 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-10" id="game">
-         
+                <!-- can we move these styles to the CSS? -->
                 <style>
-                    #currency {
+                    .currency {
                         background-color: rgb(120, 145, 21);
                         border-style: rounded;
                         border-radius: 10px;
                     }
 
-                    #currency:hover {
+                    .currency:hover {
                         background-color: #005A31;
                     }
 
@@ -84,21 +86,23 @@
                         height: 75px;
                     }
                 </style>
-                <div id="currency">
+                <!-- Currency buttons -->
+                <div id="bitcoin" class="currency">
                     <img src="assets/images/bitcoin.png">
                     <h2>Bitcoin</h2>
-                    <h3>12% ^</h3>
+                    <h3 id="btcGrow"></h3>
                 </div>
-                <div id="currency">
+                <div id="ethereum" class="currency">
                     <img src="assets/images/ethereum.png">
                     <h2>Ethereum</h2>
-                    <h3>12% ^</h3>
+                    <h3 id="ethGrow"></h3>
                 </div>
-                <div id="currency">
-                        <img src="assets/images/litecoin-logo.png">
-                        <h2>Lite Coin</h2>
-                        <h3>12% ^</h3>
-                    </div>
+                <div id="litecoin" class="currency">
+                    <img src="assets/images/litecoin-logo.png">
+                    <h2>Lite Coin</h2>
+                    <h3 id="ltcGrow"></h3>
+                </div>
+                <!-- End buttons -->
             </div>
             <div class="col-md-1"></div>
         </div>
@@ -107,7 +111,7 @@
     <nav class="navbar navbar-default">
 
         <div class="container">
-            &copy;<h4>Victorious Secret</h4>
+            <h4>&copy;Victorious Secret</h4>
         </div>
     </nav>
 
