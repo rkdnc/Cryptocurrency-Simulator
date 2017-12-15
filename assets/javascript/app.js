@@ -63,10 +63,37 @@ btnLogout.on("click", function(event){
  })
 //---------------Login System------------
 //--------------API information----------
+
 //BTC API
 var btcQueryUrl = "https://api.coinmarketcap.com/v1/ticker/bitcoin/";
 
+$.ajax({
+    url: btcQueryUrl,
+    method: "GET"
+}).done(function(bitcoin){
+    console.log(bitcoin);
+})
 
+
+//LTC API
+var ltcQueryUrl = "https://api.coinmarketcap.com/v1/ticker/litecoin/";
+
+$.ajax({
+    url: ltcQueryUrl,
+    method: "GET"
+}).done(function(litecoin){
+    console.log(litecoin);
+})
+
+//Eth API
+var ethQueryUrl = "https://api.coinmarketcap.com/v1/ticker/ethereum/";
+
+$.ajax({
+    url: ethQueryUrl,
+    method: "GET"
+}).done(function(ethereum){
+    console.log(ethereum);
+})
 
 
 
