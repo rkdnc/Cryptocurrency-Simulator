@@ -34,68 +34,73 @@
  //Signup Event
 
  btnSignUp.on("click", function (event) {
- //get email and password
- var email = txtEmail.val();
- var password = txtPassword.val();
- var auth = firebase.auth();
- //Sign in
- var promise = auth.createUserWithEmailAndPassword(email, password);
- promise.catch(e => console.log(e.message))
+     //get email and password
+     var email = txtEmail.val();
+     var password = txtPassword.val();
+     var auth = firebase.auth();
+     //Sign in
+     var promise = auth.createUserWithEmailAndPassword(email, password);
+     promise.catch(e => console.log(e.message))
  });
 
-//Logout user
-btnLogout.on("click", function(event){
-    firebase.auth().signOut();
-})
+ //Logout user
+ btnLogout.on("click", function (event) {
+     firebase.auth().signOut();
+ })
 
  //Add realtime listener
- firebase.auth().onAuthStateChanged(firebaseUser =>{ //Also holy sh*t you can use => for functions
-    if(firebaseUser) {
-        console.log(firebaseUser);
-        btnLogout.css("display", "inline");
-        btnLogin.css("display", "none");
-        btnSignUp.css("display", "none");
-    } else{
-        console.log("not logged in");
-        btnLogout.css("display", "none");
-        btnLogin.css("display", "inline");
-    }
+ firebase.auth().onAuthStateChanged(firebaseUser => { //Also holy sh*t you can use => for functions
+     if (firebaseUser) {
+         console.log(firebaseUser);
+         btnLogout.css("display", "inline");
+         btnLogin.css("display", "none");
+         btnSignUp.css("display", "none");
+     } else {
+         console.log("not logged in");
+         btnLogout.css("display", "none");
+         btnLogin.css("display", "inline");
+     }
  })
-//---------------Login System------------
-//--------------API information----------
+ //---------------Login System------------
+ //--------------API information----------
 
-//BTC API
-var btcQueryUrl = "https://api.coinmarketcap.com/v1/ticker/bitcoin/";
+ //BTC API
+ var btcQueryUrl = "https://api.coinmarketcap.com/v1/ticker/bitcoin/";
 
-$.ajax({
-    url: btcQueryUrl,
-    method: "GET"
-}).done(function(bitcoin){
-    console.log(bitcoin);
-})
+ $.ajax({
+     url: btcQueryUrl,
+     method: "GET"
+ }).done(function (bitcoin) {
+     // console.log("bitcoin" ,bitcoin);
+     //Adding the bitcoin information
+     $("#btcPrice").text(`Current Price: $${bitcoin[0].price_usd}`);
+     $("#btcGrow").text(`Change over the past 24hrs: ${bitcoin[0].percent_change_24h}%`);
 
+ })
 
-//LTC API
-var ltcQueryUrl = "https://api.coinmarketcap.com/v1/ticker/litecoin/";
+ //Eth API
+ var ethQueryUrl = "https://api.coinmarketcap.com/v1/ticker/ethereum/";
 
-$.ajax({
-    url: ltcQueryUrl,
-    method: "GET"
-}).done(function(litecoin){
-    console.log(litecoin);
-})
+ $.ajax({
+     url: ethQueryUrl,
+     method: "GET"
+ }).done(function (ethereum) {
+     // console.log(ethereum);
+     //Adding the ethereum information
+     $("#ethPrice").text(`Current Price: $${ethereum[0].price_usd}`);
+     $("#ethGrow").text(`Change over the past 24hrs: ${ethereum[0].percent_change_24h}%`);
+ })
 
-//Eth API
-var ethQueryUrl = "https://api.coinmarketcap.com/v1/ticker/ethereum/";
+ //LTC API
+ var ltcQueryUrl = "https://api.coinmarketcap.com/v1/ticker/litecoin/";
 
-$.ajax({
-    url: ethQueryUrl,
-    method: "GET"
-}).done(function(ethereum){
-    console.log(ethereum);
-})
-
-
-
-
- 
+ $.ajax({
+     url: ltcQueryUrl,
+     method: "GET"
+ }).done(function (litecoin) {
+     // console.log(litecoin);
+     //Adding the litecoin information
+     $("#ltcPrice").text(`Current Price: $${litecoin[0].price_usd}`);
+     $("#ltcGrow").text(`Change over the past 24hrs: ${litecoin[0].percent_change_24h}%`);
+ })
+ //---------------------------------------
