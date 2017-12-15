@@ -5,38 +5,15 @@
 <head>
     <title>Cyrptocurrency Exchange</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
-<style>
-    body {
-        background: #005A31;
-    }
-
-    .navbar {
-        background: rgb(120, 145, 21);
-        border-color: #F3FAB6;
-        padding-bottom: 15px;
-    }
-
-    #headFont {
-        color: rgb(2, 70, 38);
-    }
-
-    #game {
-        background: #F3FAB6;
-        margin-top: 150px;
-        padding: 20px;
-        margin-bottom: 30px;
-        border-style: round;
-        border-radius: 10px;
-        border-color: black;
-    }
-</style>
+<style></style>
 
 <body>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <div class="row">
         <div class="container">
             <div class="col-md-12" id="navbar">
@@ -44,6 +21,17 @@
                     <div class="container">
                         <!-- Begin login system -->
                         <h1 id="headFont">Cryptocurrency Exchange!</h1>
+                    </div>
+                    <!-- End login system -->
+                </nav>
+            </div>
+            <ul id="slide-out" class="side-nav">
+                <li>
+                    <div class="user-view">
+                        <div class="background">
+                            <!-- Potential Profile Picture -->
+                            <!-- <img src="images/office.jpg"> -->
+                        </div>
                         <input id="txtEmail" type="email" placeholder="Email">
 
                         <input id="txtPassword" type="password" placeholder="Password">
@@ -60,45 +48,51 @@
                             Log out
                         </button>
                     </div>
-                    <!-- End login system -->
-                </nav>
-            </div>
+                </li>
+                <li>
+                    <a href="#!">
+                        <i class="material-icons">cloud</i>First Link With Icon</a>
+                </li>
+                <li>
+                    <a href="#!">Second Link</a>
+                </li>
+                <li>
+                    <div class="divider"></div>
+                </li>
+                <li>
+                    <a class="subheader">Subheader</a>
+                </li>
+                <li>
+                    <a class="waves-effect" href="#!">Third Link With Waves</a>
+                </li>
+            </ul>
+            <a href="#" data-activates="slide-out" class="button-collapse">
+                <i class="material-icons">Profile</i>
+            </a>
+
         </div>
     </div>
     <div class="container">
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-10" id="game">
-                <!-- can we move these styles to the CSS? -->
-                <style>
-                    .currency {
-                        background-color: rgb(120, 145, 21);
-                        border-style: rounded;
-                        border-radius: 10px;
-                    }
 
-                    .currency:hover {
-                        background-color: #005A31;
-                    }
-
-                    img {
-                        width: 75px;
-                        height: 75px;
-                    }
-                </style>
                 <!-- Currency buttons -->
                 <div id="bitcoin" class="currency">
                     <img src="assets/images/bitcoin.png">
+                    <div id="btcPrice"></div>
                     <h2>Bitcoin</h2>
                     <h3 id="btcGrow"></h3>
                 </div>
                 <div id="ethereum" class="currency">
                     <img src="assets/images/ethereum.png">
+                    <div id="ethPrice"></div>
                     <h2>Ethereum</h2>
                     <h3 id="ethGrow"></h3>
                 </div>
                 <div id="litecoin" class="currency">
                     <img src="assets/images/litecoin-logo.png">
+                    <div id="ltcPrice"></div>
                     <h2>Lite Coin</h2>
                     <h3 id="ltcGrow"></h3>
                 </div>
@@ -118,10 +112,14 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="assets/javascript/app.js"></script>
+    <script>
+         // Initialize collapse button
+         $(".button-collapse").sideNav();
+        // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+        $('.collapsible').collapsible();
+    </script>
 </body>
-
-
-
 
 </html>
