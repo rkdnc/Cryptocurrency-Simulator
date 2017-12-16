@@ -41,6 +41,7 @@
      //Sign in
      var promise = auth.createUserWithEmailAndPassword(email, password);
      promise.catch(e => console.log(e.message))
+
  });
 
  //Logout user
@@ -55,6 +56,9 @@
          btnLogout.css("display", "inline");
          btnLogin.css("display", "none");
          btnSignUp.css("display", "none");
+         //todo: remove forms if logged in
+         //call functions that will tell them their profile information
+         userInformation(firebaseUser)
      } else {
          console.log("not logged in");
          btnLogout.css("display", "none");
@@ -104,3 +108,30 @@
      $("#ltcGrow").text(`Change over the past 24hrs: ${litecoin[0].percent_change_24h}%`);
  })
  //---------------------------------------
+ //---------------Functionality-----------
+ // Initialize collapse button
+ $(".button-collapse").sideNav();
+ // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+ $('.collapsible').collapsible();
+ //--------------------------------------
+ //-----------User Information-----------
+ function userInformation(firebaseUser) {
+     //Currently stuck on this
+     var currentUser = { user: firebaseUser.email, defaultWallet};
+     var defaultWallet = {
+         currUSD: 100000,
+         currBTC: 0,
+         currEth: 0,
+         currLTC: 0
+     }
+     var username = {
+         
+     }
+ }
+ database.ref().set({
+     users: username
+ });
+ console.log(currentUser);
+ }
+
+ ////look at the login stuff
