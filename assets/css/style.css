@@ -1,30 +1,47 @@
 body {
     background: #005A31;
+    font-family: 'Josefin Sans', sans-serif;
 }
-
-.navbar {
+#headerRow{
+    margin:0;
+}
+#header {
     background: rgb(120, 145, 21);
     border-color: #F3FAB6;
-    padding-bottom: 15px;
+    /* padding-bottom: 15px; */
+    margin: 0px;
 }
 
 #headFont {
     color: rgb(2, 70, 38);
+    font-size: 40px;
+}
+.footer {
+    background: rgb(120, 145, 21);
+}
+#tm {
+    color: black;
+    text-align: center;
+    font-size: 25px;
+    padding-top: 20px;
+    
 }
 
 #game {
     background: #F3FAB6;
-    margin-top: 150px;
+    margin-top: 50px;
     padding: 20px;
     margin-bottom: 30px;
     border-style: round;
     border-radius: 10px;
     border-color: black;
 }
+
 .currency {
     background-color: rgb(120, 145, 21);
     border-style: round;
     border-radius: 10px;
+    height: 30vh;
 }
 
 .currency:hover {
@@ -34,4 +51,29 @@ body {
 img {
     width: 75px;
     height: 75px;
+}
+
+/* .icon {
+    border: 1px solid black;   
+    text-align: center; 
+} */
+
+.currencyName {
+    font-size: 20px;
+}
+
+.currencylogo {
+    padding-top: 10px;
+    height: auto;
+    width: 45%;
+}   
+
+.col {
+    border: 1px solid black;
+    height: 100%;
+}
+.market {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between
 }
