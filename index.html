@@ -20,7 +20,7 @@
                     <div class="container">
                         <h1 id="headFont">Cryptocurrency Exchange!</h1>
                     </div>
-                    
+
                 </nav>
             </div>
             <ul id="slide-out" class="side-nav">
@@ -39,15 +39,17 @@
                             Log in
                         </button>
 
-                        <button id="btnSignUp" class="btn btn-secondary">
+                        <button class="btn waves-effect waves-green" id="btnSignUp" class="btn btn-secondary">
                             Sign Up
                         </button>
 
-                        <button id="btnLogout" class="btn btn-hide">
+                        <button class="btn waves-effect waves-green" id="btnLogout" class="btn btn-hide">
                             Log out
                         </button>
                         <!-- End login system -->
                     </div>
+                    <!-- Wallet including profile information -->
+
                 </li>
                 <li>
                     <h4>Cryptocurrency Wallet</h4>
@@ -85,51 +87,78 @@
             <div class="col-md-10" id="game">
 
                 <!-- Currency buttons -->
-                <div id="bitcoin" class="currency">
-                    <div class="icon">
-                        <img src="assets/images/bitcoin.png">
-                        <h2>Bitcoin</h2>
-                    </div>
-                    <div>
-                        <div class="price" id="btcPrice"></div>
-                        <h3 class="grow" id="btcGrow"></h3>
-                    </div>
-                    <div class="buy">
-                        <form>
-                            Buy: <input type="text" value=""><br>
-                            Sell: <input type="text" value="text"><br>
-                            </form>
-                    </div>
-                    <div class="sell">
-                        <h2>Sell</h2>
-                    </div>
-                </div>
-                <div id="ethereum" class="currency">
-                    <div class="icon">
-                    <img src="assets/images/ethereum.png">
-                    <h2>Ethereum</h2>
-                    </div>
-                    <div class="price" id="ethPrice"></div>                    
-                    <h3 class="grow" id="ethGrow"></h3>
-                    <div class="buy">
-                        <h2>Buy</h2>
-                    </div>
-                    <div class="sell">
-                        <h2>Sell</h2>
+                <div class="row currency">
+                    <div id="bitcoin" class="currency">
+                        <div class="col s4" class="icon">
+                            <img class="currencylogo" id="bitcoinLogo" src="assets/images/bitcoin.png">
+                            <h2 class="currencyName">Bitcoin</h2>
+                        </div>
+                        <div class="col s4">
+                            <div class="price" id="btcPrice"></div>
+                            <h3 class="grow" id="btcGrow"></h3>
+                        </div>
+                        <div class="col s4">
+                            <div class="buy">
+                                <form>
+                                    Buy:
+                                    <input type="text" value="">
+                                    <br>
+                                </form>
+                            </div>
+                            <div class="sell">
+                                Sell:
+                                <input type="text" value="">
+                                <br>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div id="litecoin" class="currency">
-                    <div class="icon">
-                    <img src="assets/images/litecoin-logo.png">
-                    <h2>Lite Coin</h2>
+                <div class="row currency">
+                    <div id="ethereum" class="currency">
+                        <div class="col s4" class="icon">
+                            <img class="currencylogo" id="ethereumlogo" src="assets/images/ethereum.png">
+                            <h2 class="currencyName">Ethereum</h2>
+                        </div>
+                        <div class="col s4">
+                            <div class="price" id="ethPrice"></div>
+                            <h3 class="grow" id="ethGrow"></h3>
+                        </div>
+                        <div class="col s4">
+                            <div class="buy">
+                                Buy:
+                                <input type="text" value="">
+                                <br>
+                            </div>
+                            <div class="sell">
+                                Sell:
+                                <input type="text" value="">
+                                <br>
+                            </div>
+                        </div>
                     </div>
-                    <div class="price" id="ltcPrice"></div>                   
-                    <h3 class="grow" id="ltcGrow"></h3>
-                    <div class="buy">
-                        <h2>Buy</h2>
-                    </div>
-                    <div class="sell">
-                        <h2>Sell</h2>
+                </div>
+                <div class="row currency">
+                    <div id="litecoin" class="currency">
+                        <div class="col s4" class="icon">
+                            <img class="currencylogo" id="litecoinLogo" src="assets/images/litecoin-logo.png">
+                            <h2 class="currencyName">Lite Coin</h2>
+                        </div>
+                        <div class="col s4">
+                            <div class="price" id="ltcPrice"></div>
+                            <h3 class="grow" id="ltcGrow"></h3>
+                            </div>
+                            <div class="col s4">
+                            <div class="buy">
+                                Buy:
+                                <input type="text" value="">
+                                <br>
+                            </div>
+                            <div class="sell">
+                                Sell:
+                                <input type="text" value="">
+                                <br>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- End buttons -->
