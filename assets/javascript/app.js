@@ -10,6 +10,7 @@
  firebase.initializeApp(config);
  // Database initialized.
  var database = firebase.database();
+ var usersEndPoint = database.ref("/users");
 
  //---------------Login System------------
  //Getting elements
@@ -40,6 +41,19 @@
      var auth = firebase.auth();
      //Sign in
      var promise = auth.createUserWithEmailAndPassword(email, password);
+     promise.then(function (user) {
+         usersEndPoint.child(user.uid).set({
+             "userName": user.email
+         });
+         usersEndPoint.child(user.uid).update({
+             wallet: {
+                 currBTC: 0,
+                 currLTC: 0,
+                 currETH: 0,
+                 currUSD: 100000
+             }
+         })
+     })
      promise.catch(e => console.log(e.message))
 
  });
@@ -48,17 +62,18 @@
  btnLogout.on("click", function (event) {
      firebase.auth().signOut();
  })
-
+var myEndPoint;
  //Add realtime listener
  firebase.auth().onAuthStateChanged(firebaseUser => { //Also holy sh*t you can use => for functions
      if (firebaseUser) {
+         myEndPoint = usersEndPoint.child(user.uid)
          console.log(firebaseUser);
          btnLogout.css("display", "inline");
          btnLogin.css("display", "none");
          btnSignUp.css("display", "none");
          //todo: remove forms if logged in
          //call functions that will tell them their profile information
-         userInformation(firebaseUser)
+        //  userInformation(firebaseUser)
      } else {
          console.log("not logged in");
          btnLogout.css("display", "none");
@@ -114,26 +129,9 @@
  // Initialize collapsible (uncomment the line below if you use the dropdown variation)
  $('.collapsible').collapsible();
  //--------------------------------------
- //-----------User Information-----------
- function userInformation(firebaseUser) {
-     //Currently stuck on this
-     var wallet = {
-         user: firebaseUser.email,
-         currUSD: 100000,
-         currBTC: 0,
-         currEth: 0,
-         currLTC: 0
-     }
-      var users = {
-          wallets: wallet
-      };
+ //-----------Purchasing-----------
 
-
-     database.ref().set({
-         users: users
-     });
- };
- //  console.log(currentUser);
-
-
- ////look at the login stuff
+ ///.update will change object values
+ // myEndPoint.on("value", function(snapshot){
+     //$element.text(snapshot.val().wallet.currency)
+//  })
