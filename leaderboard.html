@@ -3,7 +3,7 @@
 <html lang="en-us">
 
 <head>
-    <title>Cyrptocurrency Exchange</title>
+    <title>Cyrptocurrency Leaderboard</title>
     <meta charset="utf-8">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
@@ -18,9 +18,9 @@
             <div class="col-md-12" id="navbar">
                 <nav class="navbar navbar-default navbar-fixed-top">
                     <div class="container">
-                        <h1 id="headFont">Cryptocurrency Exchange!</h1>
+                        <h1 id="headFont">Cryptocurrency Leaderboard</h1>
                     </div>
-                    
+
                 </nav>
             </div>
             <ul id="slide-out" class="side-nav">
@@ -35,7 +35,7 @@
 
                         <input id="txtPassword" type="password" placeholder="Password">
 
-                        <button class="btn waves-effect waves-green" id="btnLogin" class="btn btn-action">
+                        <button id="btnLogin" class="btn btn-action">
                             Log in
                         </button>
 
@@ -73,68 +73,22 @@
                 <i class="material-icons">Cryptocurrency Profile</i>
             </a>
 
-            <a href="leaderboard.html">Leaderboard</a>
+            <a href="index.html">Home</a>
 
         </div>
     </div>
 
 
     <div class="container">
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-10" id="game">
-
-                <!-- Currency buttons -->
-                <div id="bitcoin" class="currency">
-                    <div class="icon">
-                        <img src="assets/images/bitcoin.png">
-                        <h2>Bitcoin</h2>
-                    </div>
-                    <div>
-                        <div class="price" id="btcPrice"></div>
-                        <h3 class="grow" id="btcGrow"></h3>
-                    </div>
-                    <div class="buy">
-                        <form>
-                            Buy: <input type="text" value=""><br>
-                            Sell: <input type="text" value="text"><br>
-                            </form>
-                    </div>
-                    <div class="sell">
-                        <h2>Sell</h2>
-                    </div>
-                </div>
-                <div id="ethereum" class="currency">
-                    <div class="icon">
-                    <img src="assets/images/ethereum.png">
-                    <h2>Ethereum</h2>
-                    </div>
-                    <div class="price" id="ethPrice"></div>                    
-                    <h3 class="grow" id="ethGrow"></h3>
-                    <div class="buy">
-                        <h2>Buy</h2>
-                    </div>
-                    <div class="sell">
-                        <h2>Sell</h2>
-                    </div>
-                </div>
-                <div id="litecoin" class="currency">
-                    <div class="icon">
-                    <img src="assets/images/litecoin-logo.png">
-                    <h2>Lite Coin</h2>
-                    </div>
-                    <div class="price" id="ltcPrice"></div>                   
-                    <h3 class="grow" id="ltcGrow"></h3>
-                    <div class="buy">
-                        <h2>Buy</h2>
-                    </div>
-                    <div class="sell">
-                        <h2>Sell</h2>
-                    </div>
-                </div>
-                <!-- End buttons -->
-            </div>
-            <div class="col-md-1"></div>
+        <div id="game">
+            <h2>Leaderboard</h2>
+            <ul>
+                <li>1. Michael</li>
+                <li>1. Michael</li>
+                <li>1. Michael</li>
+                <li>1. Michael</li>
+                <li>1. Michael</li>
+            </ul>
         </div>
     </div>
 
@@ -156,6 +110,7 @@
         // Initialize collapsible (uncomment the line below if you use the dropdown variation)
         $('.collapsible').collapsible();
     </script>
+
 </body>
 
 </html>
