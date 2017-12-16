@@ -9,6 +9,7 @@
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
 </head>
 
 <style></style>
@@ -19,10 +20,9 @@
             <div class="col-md-12" id="navbar">
                 <nav class="navbar navbar-default navbar-fixed-top">
                     <div class="container">
-                        <!-- Begin login system -->
                         <h1 id="headFont">Cryptocurrency Exchange!</h1>
                     </div>
-                    <!-- End login system -->
+                    
                 </nav>
             </div>
             <ul id="slide-out" class="side-nav">
@@ -31,6 +31,7 @@
                         <div class="background">
                             <!-- Potential Profile Picture -->
                             <!-- <img src="images/office.jpg"> -->
+                            <!-- Begin login system -->
                         </div>
                         <input id="txtEmail" type="email" placeholder="Email">
 
@@ -47,23 +48,27 @@
                         <button id="btnLogout" class="btn btn-hide">
                             Log out
                         </button>
+                        <!-- End login system -->
                     </div>
                 </li>
                 <li>
-                    <a href="#!">
-                        <i class="material-icons">cloud</i>First Link With Icon</a>
+                    <h4>Cryptocurrency Wallet</h4>
                 </li>
-                <li>
-                    <a href="#!">Second Link</a>
-                </li>
+
                 <li>
                     <div class="divider"></div>
                 </li>
                 <li>
-                    <a class="subheader">Subheader</a>
+                    <p>Name</p>
                 </li>
                 <li>
-                    <a class="waves-effect" href="#!">Third Link With Waves</a>
+                    <p>Cash</p>
+                </li>
+                <li>
+                    <p>Currency</p>
+                    <li>Bit Coin</li>
+                    <li>Ethereum</li>
+                    <li>Lite Coin</li>
                 </li>
             </ul>
             <a href="#" data-activates="slide-out" class="button-collapse">
@@ -72,6 +77,8 @@
 
         </div>
     </div>
+
+
     <div class="container">
         <div class="row">
             <div class="col-md-1"></div>
@@ -79,22 +86,48 @@
 
                 <!-- Currency buttons -->
                 <div id="bitcoin" class="currency">
-                    <img src="assets/images/bitcoin.png">
-                    <div id="btcPrice"></div>
-                    <h2>Bitcoin</h2>
-                    <h3 id="btcGrow"></h3>
+                    <div>
+                        <img src="assets/images/bitcoin.png">
+                        <h2>Bitcoin</h2>
+                    </div>
+                    <div>
+                        <div id="btcPrice"></div>
+                        <h3 id="btcGrow"></h3>
+                    </div>
+                    <div>
+                        <h2>Buy</h2>
+                    </div>
+                    <div>
+                        <h2>Sell</h2>
+                    </div>
                 </div>
                 <div id="ethereum" class="currency">
+                    <div>
                     <img src="assets/images/ethereum.png">
-                    <div id="ethPrice"></div>
                     <h2>Ethereum</h2>
+                    </div>
+                    <div id="ethPrice"></div>                    
                     <h3 id="ethGrow"></h3>
+                    <div>
+                        <h2>Buy</h2>
+                    </div>
+                    <div>
+                        <h2>Sell</h2>
+                    </div>
                 </div>
                 <div id="litecoin" class="currency">
+                    <div>
                     <img src="assets/images/litecoin-logo.png">
-                    <div id="ltcPrice"></div>
                     <h2>Lite Coin</h2>
+                    </div>
+                    <div id="ltcPrice"></div>                   
                     <h3 id="ltcGrow"></h3>
+                    <div>
+                        <h2>Buy</h2>
+                    </div>
+                    <div>
+                        <h2>Sell</h2>
+                    </div>
                 </div>
                 <!-- End buttons -->
             </div>
@@ -115,8 +148,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="assets/javascript/app.js"></script>
     <script>
-         // Initialize collapse button
-         $(".button-collapse").sideNav();
+        // Initialize collapse button
+        $(".button-collapse").sideNav();
         // Initialize collapsible (uncomment the line below if you use the dropdown variation)
         $('.collapsible').collapsible();
     </script>
