@@ -117,21 +117,23 @@
  //-----------User Information-----------
  function userInformation(firebaseUser) {
      //Currently stuck on this
-     var currentUser = { user: firebaseUser.email, defaultWallet};
-     var defaultWallet = {
+     var wallet = {
+         user: firebaseUser.email,
          currUSD: 100000,
          currBTC: 0,
          currEth: 0,
          currLTC: 0
      }
-     var username = {
-         
-     }
- }
- database.ref().set({
-     users: username
- });
- console.log(currentUser);
- }
+      var users = {
+          wallets: wallet
+      };
+
+
+     database.ref().set({
+         users: users
+     });
+ };
+ //  console.log(currentUser);
+
 
  ////look at the login stuff
