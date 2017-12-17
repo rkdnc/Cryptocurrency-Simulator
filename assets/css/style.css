@@ -2,6 +2,9 @@ body {
     background: #005A31;
     font-family: 'Josefin Sans', sans-serif;
 }
+h3 {
+    font-size: 18px;
+}
 #headerRow{
     margin:0;
 }
@@ -45,7 +48,7 @@ body {
 }
 
 .currency:hover {
-    background-color: #005A31;
+    background-color: rgb(3, 143, 78);
 }
 
 img {
@@ -76,4 +79,7 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: space-between
+}
+.buy {
+    padding: 2px;
 }

@@ -72,6 +72,8 @@ var myEndPoint;
          btnLogout.css("display", "inline");
          btnLogin.css("display", "none");
          btnSignUp.css("display", "none");
+         $("#txtEmail").css("display", "none");
+         $("#txtPassword").css("display", "none");
          //todo: remove forms if logged in
          //call functions that will tell them their profile information
         //  addUserInfo(myEndPoint);
@@ -83,10 +85,10 @@ var myEndPoint;
             var ltc = userInfo.wallet.currLTC;
             var cash = userInfo.wallet.currUSD;
         //add values to sidebar profile
-            userBtc.text(btc);
-            userEth.text(eth);
-            userLtc.text(ltc);
-            userCash.text(cash);
+            userBtc.text(`Bitcoin: ${btc}`);
+            userEth.text(`Ethereum: ${eth}`);
+            userLtc.text(`Litecoin: ${ltc}`);
+            userCash.text(`Cash (USD): ${cash}`);
          });
      } else {
          console.log("not logged in");
