@@ -66,14 +66,28 @@ var myEndPoint;
  //Add realtime listener
  firebase.auth().onAuthStateChanged(firebaseUser => { //Also holy sh*t you can use => for functions
      if (firebaseUser) {
-         myEndPoint = usersEndPoint.child(user.uid)
-         console.log(firebaseUser);
+         //current user info
+         myEndPoint = usersEndPoint.child(firebaseUser.uid);
+         console.log(`Current User: ${myEndPoint}`);
          btnLogout.css("display", "inline");
          btnLogin.css("display", "none");
          btnSignUp.css("display", "none");
          //todo: remove forms if logged in
          //call functions that will tell them their profile information
-        //  userInformation(firebaseUser)
+        //  addUserInfo(myEndPoint);
+        myEndPoint.on("value", function(snapshot){
+            console.log(snapshot.val());
+            var userInfo = snapshot.val();
+            var btc = userInfo.wallet.currBTC;
+            var eth = userInfo.wallet.currETH;
+            var ltc = userInfo.wallet.currLTC;
+            var cash = userInfo.wallet.currUSD;
+        //add values to sidebar profile
+            userBtc.text(btc);
+            userEth.text(eth);
+            userLtc.text(ltc);
+            userCash.text(cash);
+         });
      } else {
          console.log("not logged in");
          btnLogout.css("display", "none");
@@ -129,6 +143,12 @@ var myEndPoint;
  // Initialize collapsible (uncomment the line below if you use the dropdown variation)
  $('.collapsible').collapsible();
  //--------------------------------------
+ //-----------User Information-----------
+ var userBtc = $("#btc");
+ var userEth = $("#eth");
+ var userLtc = $("#ltc");
+ var userCash = $("#cash");
+
  //-----------Purchasing-----------
 
  ///.update will change object values
