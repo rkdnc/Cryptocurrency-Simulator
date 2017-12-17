@@ -13,71 +13,66 @@
 </head>
 
 <body>
-    <div class="row">
-        <div class="container">
-            <div class="col-md-12" id="navbar">
-                <nav class="navbar navbar-default navbar-fixed-top">
-                    <div class="container">
-                        <h1 id="headFont">Cryptocurrency Exchange!</h1>
-                    </div>
-
-                </nav>
+    <div class="container">
+        <div class="row" id="headerRow">
+            <div class="col s12" id="header">
+                <h1 id="headFont">Cryptocurrency Exchange!</h1>
             </div>
-            <ul id="slide-out" class="side-nav">
-                <li>
-                    <div class="user-view">
-                        <div class="background">
-                            <!-- Potential Profile Picture -->
-                            <!-- <img src="images/office.jpg"> -->
-                            <!-- Begin login system -->
-                        </div>
-                        <input id="txtEmail" type="email" placeholder="Email">
-
-                        <input id="txtPassword" type="password" placeholder="Password">
-
-                        <button class="btn waves-effect waves-green" id="btnLogin" class="btn btn-action">
-                            Log in
-                        </button>
-
-                        <button class="btn waves-effect waves-green" id="btnSignUp" class="btn btn-secondary">
-                            Sign Up
-                        </button>
-
-                        <button class="btn waves-effect waves-green" id="btnLogout" class="btn btn-hide">
-                            Log out
-                        </button>
-                        <!-- End login system -->
-                    </div>
-                    <!-- Wallet including profile information -->
-
-                </li>
-                <li>
-                    <h4>Cryptocurrency Wallet</h4>
-                </li>
-
-                <li>
-                    <div class="divider"></div>
-                </li>
-                <li>
-                    <p>Name</p>
-                </li>
-                <li>
-                    <p>Cash</p>
-                </li>
-                <li>
-                    <p>Currency</p>
-                    <li>Bit Coin</li>
-                    <li>Ethereum</li>
-                    <li>Lite Coin</li>
-                </li>
-            </ul>
-            <a href="#" data-activates="slide-out" class="button-collapse">
-                <i class="material-icons">Cryptocurrency Profile</i>
-            </a>
-
-            <a href="leaderboard.html">Leaderboard</a>
-
         </div>
+        <ul id="slide-out" class="side-nav">
+            <li>
+                <div class="user-view">
+                    <div class="background">
+                        <!-- Potential Profile Picture -->
+                        <!-- <img src="images/office.jpg"> -->
+                        <!-- Begin login system -->
+                    </div>
+                    <input id="txtEmail" type="email" placeholder="Email">
+
+                    <input id="txtPassword" type="password" placeholder="Password">
+
+                    <button class="btn waves-effect waves-green" id="btnLogin" class="btn btn-action">
+                        Log in
+                    </button>
+
+                    <button class="btn waves-effect waves-green" id="btnSignUp" class="btn btn-secondary">
+                        Sign Up
+                    </button>
+
+                    <button class="btn waves-effect waves-green" id="btnLogout" class="btn btn-hide">
+                        Log out
+                    </button>
+                    <!-- End login system -->
+                </div>
+                <!-- Wallet including profile information -->
+
+            </li>
+            <li>
+                <h4>Cryptocurrency Wallet</h4>
+            </li>
+
+            <li>
+                <div class="divider"></div>
+            </li>
+            <li>
+                <p>Name</p>
+            </li>
+            <li>
+                <p>Cash</p>
+            </li>
+            <li>
+                <p>Currency</p>
+                <li>Bit Coin</li>
+                <li>Ethereum</li>
+                <li>Lite Coin</li>
+            </li>
+        </ul>
+        <a href="#" data-activates="slide-out" class="button-collapse">
+            <i class="material-icons">Cryptocurrency Profile</i>
+        </a>
+
+        <a href="leaderboard.html">Leaderboard</a>
+
     </div>
 
 
@@ -88,42 +83,42 @@
 
                 <!-- Currency buttons -->
                 <div class="row currency">
-                    <div id="bitcoin" class="currency">
-                        <div class="col s4" class="icon">
-                            <img class="currencylogo" id="bitcoinLogo" src="assets/images/bitcoin.png">
-                            <h2 class="currencyName">Bitcoin</h2>
-                        </div>
-                        <div class="col s4">
-                            <div class="price" id="btcPrice"></div>
-                            <h3 class="grow" id="btcGrow"></h3>
-                        </div>
-                        <div class="col s4">
-                            <div class="buy">
-                                <form>
-                                    Buy:
-                                    <input type="text" value="">
-                                    <br>
-                                </form>
-                            </div>
-                            <div class="sell">
-                                Sell:
+                    <!-- <div id="bitcoin" class="currency"> -->
+                    <div class="col s4 icon">
+                        <img class="currencylogo" id="bitcoinLogo" src="assets/images/bitcoin.png">
+                        <h2 class="currencyName">Bitcoin</h2>
+                    </div>
+                    <div class="col s4 value">
+                        <div class="price" id="btcPrice"></div>
+                        <h3 class="grow" id="btcGrow"></h3>
+                    </div>
+                    <div class="col s4 market">
+                        <div class="buy">
+                            <form>
+                                Buy:
                                 <input type="text" value="">
                                 <br>
-                            </div>
+                            </form>
+                        </div>
+                        <div class="sell">
+                            Sell:
+                            <input type="text" value="">
+                            <br>
                         </div>
                     </div>
+                    <!-- </div> -->
                 </div>
                 <div class="row currency">
                     <div id="ethereum" class="currency">
-                        <div class="col s4" class="icon">
+                        <div class="col s4 icon">
                             <img class="currencylogo" id="ethereumlogo" src="assets/images/ethereum.png">
                             <h2 class="currencyName">Ethereum</h2>
                         </div>
-                        <div class="col s4">
+                        <div class="col s4 value">
                             <div class="price" id="ethPrice"></div>
                             <h3 class="grow" id="ethGrow"></h3>
                         </div>
-                        <div class="col s4">
+                        <div class="col s4 market">
                             <div class="buy">
                                 Buy:
                                 <input type="text" value="">
@@ -139,15 +134,15 @@
                 </div>
                 <div class="row currency">
                     <div id="litecoin" class="currency">
-                        <div class="col s4" class="icon">
+                        <div class="col s4 icon">
                             <img class="currencylogo" id="litecoinLogo" src="assets/images/litecoin-logo.png">
                             <h2 class="currencyName">Lite Coin</h2>
                         </div>
-                        <div class="col s4">
+                        <div class="col s4 value">
                             <div class="price" id="ltcPrice"></div>
                             <h3 class="grow" id="ltcGrow"></h3>
-                            </div>
-                            <div class="col s4">
+                        </div>
+                        <div class="col s4 market">
                             <div class="buy">
                                 Buy:
                                 <input type="text" value="">
@@ -167,11 +162,8 @@
         </div>
     </div>
 
-    <nav class="navbar navbar-default">
-
-        <div class="container">
-            <h4>&copy;Victorious Secret</h4>
-        </div>
+    <nav class="footer">
+        <h4 id="tm">&copy;Victorious Secret</h4>
     </nav>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -179,12 +171,6 @@
     <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="assets/javascript/app.js"></script>
-    <script>
-        // Initialize collapse button
-        $(".button-collapse").sideNav();
-        // Initialize collapsible (uncomment the line below if you use the dropdown variation)
-        $('.collapsible').collapsible();
-    </script>
 </body>
 
 </html>
