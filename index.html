@@ -5,7 +5,6 @@
 <head>
     <title>Cyrptocurrency Exchange</title>
     <meta charset="utf-8">
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
@@ -39,39 +38,39 @@
                         Sign Up
                     </button>
 
-                        <button class="btn waves-effect waves-green" id="btnLogout" class="btn btn-hide">
-                            Log out
-                        </button>
-                        <!-- End login system -->
-                    </div>
-                    <!-- Wallet including profile information -->
+                    <button class="btn waves-effect waves-green" id="btnLogout" class="btn btn-hide">
+                        Log out
+                    </button>
+                    <!-- End login system -->
+                </div>
+                <!-- Wallet including profile information -->
 
-                </li>
-                <li>
-                    <h4>Cryptocurrency Wallet</h4>
-                </li>
+            </li>
+            <li>
+                <h4>Cryptocurrency Wallet</h4>
+            </li>
 
-                <li>
-                    <div class="divider"></div>
-                </li>
-                <li>
-                    <p id="username"></p>
-                </li>
-                <li>
-                    <p id="cash">Cash</p>
-                </li>
-                <li>
-                    <p>Currency</p>
-                    <li id="btc">BitCoin</li>
-                    <li id="eth">Ethereum</li>
-                    <li id="ltc">LiteCoin</li>
-                </li>
-            </ul>
-            <a href="#" data-activates="slide-out" class="button-collapse">
-                <i class="material-icons">Cryptocurrency Profile</i>
-            </a>
+            <li>
+                <div class="divider"></div>
+            </li>
+            <li>
+                <p id="username"></p>
+            </li>
+            <li>
+                <p id="cash">Cash</p>
+            </li>
+            <li>
+                <p>Currency</p>
+                <li id="btc">BitCoin</li>
+                <li id="eth">Ethereum</li>
+                <li id="ltc">LiteCoin</li>
+            </li>
+        </ul>
+        <a href="#" data-activates="slide-out" class="button-collapse">
+            <i class="material-icons">Cryptocurrency Profile</i>
+        </a>
 
-            <a href="leaderboard.html">Leaderboard</a>
+        <a href="leaderboard.html">Leaderboard</a>
 
     </div>
 
@@ -84,24 +83,25 @@
                 <!-- Currency buttons -->
                 <div class="row currency">
                     <!-- <div id="bitcoin" class="currency"> -->
-                    <div class="col s4 icon">
+                    <div class="col s2 icon">
                         <img class="currencylogo" id="bitcoinLogo" src="assets/images/bitcoin.png">
                         <h2 class="currencyName">Bitcoin</h2>
                     </div>
-                    <div class="col s4 value">
+                    <div class="col s5 value">
                         <div class="price" id="btcPrice"></div>
                         <h3 class="grow" id="btcGrow"></h3>
                     </div>
-                    <div class="col s4 market">
+                    <div class="col s5 market">
                         <div class="buy">
                             <form>
-                                Buy:
+                                <button id="btcBuy" class="btn waves-effect waves-light" type="submit" name="action">Buy</button>
                                 <input type="text" value="">
                                 <br>
                             </form>
+
                         </div>
                         <div class="sell">
-                            Sell:
+                            <button id="btcSell" class="btn waves-effect waves-light" type="submit" name="action">Sell</button>
                             <input type="text" value="">
                             <br>
                         </div>
@@ -110,22 +110,22 @@
                 </div>
                 <div class="row currency">
                     <div id="ethereum" class="currency">
-                        <div class="col s4 icon">
+                        <div class="col s2 icon">
                             <img class="currencylogo" id="ethereumlogo" src="assets/images/ethereum.png">
                             <h2 class="currencyName">Ethereum</h2>
                         </div>
-                        <div class="col s4 value">
+                        <div class="col s5 value">
                             <div class="price" id="ethPrice"></div>
                             <h3 class="grow" id="ethGrow"></h3>
                         </div>
-                        <div class="col s4 market">
+                        <div class="col s5 market">
                             <div class="buy">
-                                Buy:
+                                    <button id="ethBuy" class="btn waves-effect waves-light" type="submit" name="action">Buy</button>
                                 <input type="text" value="">
                                 <br>
                             </div>
                             <div class="sell">
-                                Sell:
+                                    <button id="ethSell" class="btn waves-effect waves-light" type="submit" name="action">Sell</button>
                                 <input type="text" value="">
                                 <br>
                             </div>
@@ -134,22 +134,22 @@
                 </div>
                 <div class="row currency">
                     <div id="litecoin" class="currency">
-                        <div class="col s4 icon">
+                        <div class="col s2 icon">
                             <img class="currencylogo" id="litecoinLogo" src="assets/images/litecoin-logo.png">
                             <h2 class="currencyName">Lite Coin</h2>
                         </div>
-                        <div class="col s4 value">
+                        <div class="col s5 value">
                             <div class="price" id="ltcPrice"></div>
                             <h3 class="grow" id="ltcGrow"></h3>
                         </div>
-                        <div class="col s4 market">
+                        <div class="col s5 market">
                             <div class="buy">
-                                Buy:
+                                    <button id="ltcBuy" class="btn waves-effect waves-light" type="submit" name="action">Buy</button>
                                 <input type="text" value="">
                                 <br>
                             </div>
                             <div class="sell">
-                                Sell:
+                                    <button id="ltcSell" class="btn waves-effect waves-light" type="submit" name="action">Sell</button>
                                 <input type="text" value="">
                                 <br>
                             </div>
