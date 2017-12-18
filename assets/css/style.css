@@ -123,3 +123,13 @@ img {
 .grow {
     font-size: 25px;
 }
+#pageTitle {
+    font-size: 50px;
+}
+.user-view {
+    background-color: lightslategrey;
+}
+
+/* here down is leaderboard specific styling
+(could have some overlap, but that shouldn't matter) */
+
