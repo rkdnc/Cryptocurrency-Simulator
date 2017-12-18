@@ -5,6 +5,7 @@
 <head>
     <title>Cyrptocurrency Exchange</title>
     <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
@@ -15,7 +16,7 @@
     <div class="container">
         <div class="row" id="headerRow">
             <div class="col s12" id="header">
-                <h1 id="headFont">Cryptocurrency Exchange!</h1>
+                <h1 id="headFont"><i class="material-icons small">attach_money</i><i class="material-icons small">attach_money</i>Cryptocurrency Exchange!<i class="material-icons small">attach_money</i><i class="material-icons small">attach_money</i></h1>
             </div>
         </div>
         <ul id="slide-out" class="side-nav">
@@ -47,7 +48,11 @@
 
             </li>
             <li>
-                <h4>Cryptocurrency Wallet</h4>
+
+                <h5>
+                    <i class="material-icons small">account_balance_wallet</i>Cryptocurrency Wallet</h5>
+
+
             </li>
 
             <li>
@@ -57,24 +62,46 @@
                 <p id="username"></p>
             </li>
             <li>
-                <p id="cash">Cash</p>
+                <p id="cash">
+                    <i class="material-icons small">attach_money</i>Cash</p>
             </li>
             <li>
-                <p>Currency</p>
-                <li id="btc">BitCoin</li>
-                <li id="eth">Ethereum</li>
-                <li id="ltc">LiteCoin</li>
+                <p>
+                    <i class="material-icons small">credit_card</i>Currency</p>
+                <li id="btc">
+                    <i class="material-icons small">copyright</i>BitCoin</li>
+                <li id="eth">
+                    <i class="material-icons small">copyright</i>Ethereum</li>
+                <li id="ltc">
+                    <i class="material-icons small">copyright</i>LiteCoin</li>
             </li>
         </ul>
-        <a href="#" data-activates="slide-out" class="button-collapse">
-            <i class="material-icons">Cryptocurrency Profile</i>
-        </a>
-
-        <a href="leaderboard.html">Leaderboard</a>
-
     </div>
+    <div class="navDiv container">
+        <div class="row">
+            <div class="col s2">
+                <a href="#" data-activates="slide-out" class="button-collapse">
+                    <i class="material-icons medium">account_box </i>
+                </a>
+                <div>
+                    <span id="proText">Profile</span>
+                </div>
+            </div>
+            <div class="col s8 headDescDiv">
+                <span id="headDesc">Welcome to CryptoCurrency simulator! Create a profile, and start investing!
+                 Think you have what it takes to top the leaderboards and become rich with crypto cash?<span>
+            </div>
+
+            <div class="col s2">
+                <a id="LBtag" href="leaderboard.html">
+                    <i class="material-icons medium">assessment </i>
+                </a>
+                <span id="LBtext">Leaderboard</span>
+            </div>
 
 
+        </div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-md-1"></div>
@@ -95,14 +122,14 @@
                         <div class="buy">
                             <form>
                                 <button id="btcBuy" class="btn waves-effect waves-light" type="submit" name="action">Buy</button>
-                                <input type="text" value="">
+                                <input class="buy-input" type="text" value="">
                                 <br>
                             </form>
 
                         </div>
                         <div class="sell">
                             <button id="btcSell" class="btn waves-effect waves-light" type="submit" name="action">Sell</button>
-                            <input type="text" value="">
+                            <input class="sell-input" type="text" value="">
                             <br>
                         </div>
                     </div>
@@ -120,13 +147,13 @@
                         </div>
                         <div class="col s5 market">
                             <div class="buy">
-                                    <button id="ethBuy" class="btn waves-effect waves-light" type="submit" name="action">Buy</button>
-                                <input type="text" value="">
+                                <button id="ethBuy" class="btn waves-effect waves-light" type="submit" name="action">Buy</button>
+                                <input class="buy-input" type="text" value="">
                                 <br>
                             </div>
                             <div class="sell">
-                                    <button id="ethSell" class="btn waves-effect waves-light" type="submit" name="action">Sell</button>
-                                <input type="text" value="">
+                                <button id="ethSell" class="btn waves-effect waves-light" type="submit" name="action">Sell</button>
+                                <input class="sell-input" type="text" value="">
                                 <br>
                             </div>
                         </div>
@@ -144,13 +171,13 @@
                         </div>
                         <div class="col s5 market">
                             <div class="buy">
-                                    <button id="ltcBuy" class="btn waves-effect waves-light" type="submit" name="action">Buy</button>
-                                <input type="text" value="">
+                                <button id="ltcBuy" class="btn waves-effect waves-light" type="submit" name="action">Buy</button>
+                                <input class="buy-input" type="text" value="">
                                 <br>
                             </div>
                             <div class="sell">
-                                    <button id="ltcSell" class="btn waves-effect waves-light" type="submit" name="action">Sell</button>
-                                <input type="text" value="">
+                                <button id="ltcSell" class="btn waves-effect waves-light" type="submit" name="action">Sell</button>
+                                <input class="sell-input" type="text" value="">
                                 <br>
                             </div>
                         </div>
