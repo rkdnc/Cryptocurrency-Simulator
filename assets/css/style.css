@@ -134,4 +134,25 @@ img {
 }
 /* here down is leaderboard specific styling
 (could have some overlap, but that shouldn't matter) */
+.leaderBoardHeader {
+    text-align: center;
+}
+.leaderBoardList {
+    display: flex;
+    justify-content: row;
+    justify-content: space-between;
+    border: 1.3px solid black;
+    border-radius: 10px;
+    font-size: 20px;
+    background-color: white;
+    font-weight: bold; 
+}
+.lbvalue {
+    /* color: darkgreen; */
+    font-weight: bold;
+}
+.worthSpan{
+    color: darkgreen;
+    font-size: 25px;
+}
 
