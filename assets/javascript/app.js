@@ -5,7 +5,6 @@
      databaseURL: "https://cryptocurrency-simulator-612ce.firebaseio.com",
      projectId: "cryptocurrency-simulator-612ce",
      storageBucket: "",
-     messagingSenderId: "224232616282"
  };
  firebase.initializeApp(config);
  // Database initialized.
@@ -62,18 +61,38 @@
  btnLogout.on("click", function (event) {
      firebase.auth().signOut();
  })
-var myEndPoint;
+ var myEndPoint;
+ var btc;
+ var eth;
+ var ltc;
+ var cash;
  //Add realtime listener
  firebase.auth().onAuthStateChanged(firebaseUser => { //Also holy sh*t you can use => for functions
      if (firebaseUser) {
-         myEndPoint = usersEndPoint.child(user.uid)
-         console.log(firebaseUser);
+         //current user info
+         myEndPoint = usersEndPoint.child(firebaseUser.uid);
+         console.log(`Current User: ${myEndPoint}`);
          btnLogout.css("display", "inline");
          btnLogin.css("display", "none");
          btnSignUp.css("display", "none");
+         $("#txtEmail").css("display", "none");
+         $("#txtPassword").css("display", "none");
          //todo: remove forms if logged in
          //call functions that will tell them their profile information
-        //  userInformation(firebaseUser)
+         //  addUserInfo(myEndPoint);
+         myEndPoint.on("value", function (snapshot) {
+             console.log(snapshot.val());
+             var userInfo = snapshot.val();
+             btc = userInfo.wallet.currBTC;
+             eth = userInfo.wallet.currETH;
+             ltc = userInfo.wallet.currLTC;
+             cash = userInfo.wallet.currUSD;
+             //add values to sidebar profile
+             userBtc.text(`Bitcoin: ${btc}`);
+             userEth.text(`Ethereum: ${eth}`);
+             userLtc.text(`Litecoin: ${ltc}`);
+             userCash.text(`Cash (USD): ${cash}`);
+         });
      } else {
          console.log("not logged in");
          btnLogout.css("display", "none");
@@ -82,6 +101,11 @@ var myEndPoint;
  })
  //---------------Login System------------
  //--------------API information----------
+ var btcBuy = $("#btcBuy");
+ var ethBuy = $("#ethbuy");
+ var ltcBuy = $("#ltcBuy");
+ var btcTextbox = $("#btcBuyText").val();
+ var ethTextbox = $("#ethBuyText").val();
 
  //BTC API
  var btcQueryUrl = "https://api.coinmarketcap.com/v1/ticker/bitcoin/";
@@ -112,13 +136,42 @@ var myEndPoint;
 
  //LTC API
  var ltcQueryUrl = "https://api.coinmarketcap.com/v1/ticker/litecoin/";
-
+ // var currltcPrice;
  $.ajax({
      url: ltcQueryUrl,
      method: "GET"
  }).done(function (litecoin) {
      // console.log(litecoin);
      //Adding the litecoin information
+     var currltcPrice = litecoin[0].price_usd;
+     ltcBuy.on("click", function buyCoin(e) {
+         e.preventDefault;
+         var userPurchase = $("#ltcBuyText").val();
+         ltcTextbox = parseInt(userPurchase);
+         console.log(`Cash taken: ${ltcTextbox}`);
+         var transactionFee = 0.05 * ltcTextbox;
+         userPurchase = userPurchase - transactionFee;
+         console.log(`Cash after transaction fee: ${userPurchase}`);
+         var ltcBought = userPurchase / litecoin[0].price_usd;
+         console.log(`LTC Bought: ${ltcBought}`);
+         $("#ltcBuyText").val("");
+         //Get user's current USD amount, current coin amount
+         if (userPurchase <= cash) {
+             cash = cash - userPurchase
+             ltc = ltc + ltcBought
+             console.log(cash);
+             console.log(ltc);
+         } else {
+             console.log("No");
+         }
+         myEndPoint.update({
+            wallet: {
+                ltc: ltc,
+            }
+        })
+         //add new coins to current user's coin
+         //set items to the database (without overwriting other coins)
+     })
      $("#ltcPrice").text(`Current Price: $${litecoin[0].price_usd}`);
      $("#ltcGrow").text(`Change over the past 24hrs: ${litecoin[0].percent_change_24h}%`);
  })
@@ -129,9 +182,17 @@ var myEndPoint;
  // Initialize collapsible (uncomment the line below if you use the dropdown variation)
  $('.collapsible').collapsible();
  //--------------------------------------
+ //-----------User Information-----------
+ var userBtc = $("#btc");
+ var userEth = $("#eth");
+ var userLtc = $("#ltc");
+ var userCash = $("#cash");
+
  //-----------Purchasing-----------
+
+
 
  ///.update will change object values
  // myEndPoint.on("value", function(snapshot){
-     //$element.text(snapshot.val().wallet.currency)
-//  })
+ //$element.text(snapshot.val().wallet.currency)
+ //  })
