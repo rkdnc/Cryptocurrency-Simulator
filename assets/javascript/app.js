@@ -5,7 +5,6 @@
      databaseURL: "https://cryptocurrency-simulator-612ce.firebaseio.com",
      projectId: "cryptocurrency-simulator-612ce",
      storageBucket: "",
-     messagingSenderId: "224232616282"
  };
  firebase.initializeApp(config);
  // Database initialized.
@@ -62,7 +61,7 @@
  btnLogout.on("click", function (event) {
      firebase.auth().signOut();
  })
-var myEndPoint;
+ var myEndPoint;
  //Add realtime listener
  firebase.auth().onAuthStateChanged(firebaseUser => { //Also holy sh*t you can use => for functions
      if (firebaseUser) {
@@ -76,19 +75,19 @@ var myEndPoint;
          $("#txtPassword").css("display", "none");
          //todo: remove forms if logged in
          //call functions that will tell them their profile information
-        //  addUserInfo(myEndPoint);
-        myEndPoint.on("value", function(snapshot){
-            console.log(snapshot.val());
-            var userInfo = snapshot.val();
-            var btc = userInfo.wallet.currBTC;
-            var eth = userInfo.wallet.currETH;
-            var ltc = userInfo.wallet.currLTC;
-            var cash = userInfo.wallet.currUSD;
-        //add values to sidebar profile
-            userBtc.text(`Bitcoin: ${btc}`);
-            userEth.text(`Ethereum: ${eth}`);
-            userLtc.text(`Litecoin: ${ltc}`);
-            userCash.text(`Cash (USD): ${cash}`);
+         //  addUserInfo(myEndPoint);
+         myEndPoint.on("value", function (snapshot) {
+             console.log(snapshot.val());
+             var userInfo = snapshot.val();
+             var btc = userInfo.wallet.currBTC;
+             var eth = userInfo.wallet.currETH;
+             var ltc = userInfo.wallet.currLTC;
+             var cash = userInfo.wallet.currUSD;
+             //add values to sidebar profile
+             userBtc.text(`Bitcoin: ${btc}`);
+             userEth.text(`Ethereum: ${eth}`);
+             userLtc.text(`Litecoin: ${ltc}`);
+             userCash.text(`Cash (USD): ${cash}`);
          });
      } else {
          console.log("not logged in");
@@ -98,7 +97,12 @@ var myEndPoint;
  })
  //---------------Login System------------
  //--------------API information----------
-
+ var btcBuy = $("#btcBuy");
+ var ethBuy = $("#ethbuy");
+ var ltcBuy = $("#ltcBuy");
+ var btcTextbox = $("#btcBuyText").val();
+ var ethTextbox = $("#ethBuyText").val();
+ 
  //BTC API
  var btcQueryUrl = "https://api.coinmarketcap.com/v1/ticker/bitcoin/";
 
@@ -128,13 +132,29 @@ var myEndPoint;
 
  //LTC API
  var ltcQueryUrl = "https://api.coinmarketcap.com/v1/ticker/litecoin/";
-
+// var currltcPrice;
  $.ajax({
      url: ltcQueryUrl,
      method: "GET"
  }).done(function (litecoin) {
      // console.log(litecoin);
      //Adding the litecoin information
+     var currltcPrice = litecoin[0].price_usd;
+     ltcBuy.on("click", function(e){
+         e.preventDefault;
+         var userPurchase = $("#ltcBuyText").val();
+
+         console.log(currltcPrice);
+         ltcTextbox = parseInt(userPurchase);
+         console.log(ltcTextbox);
+         //take 5% of paid amount
+         // 5% * usd amount = remaining amount
+         var transactionFee = 0.05 * ltcTextbox;
+         userPurchase = userPurchase - transactionFee;
+         console.log(userPurchase);
+         //exchange rate * amount of bitcoins = 200 USD/BTC * 0.005 BTC = 200 USD * 0.005 = 1 USD
+         //USD / exchange rate = remainder of ltc
+     })
      $("#ltcPrice").text(`Current Price: $${litecoin[0].price_usd}`);
      $("#ltcGrow").text(`Change over the past 24hrs: ${litecoin[0].percent_change_24h}%`);
  })
@@ -153,7 +173,9 @@ var myEndPoint;
 
  //-----------Purchasing-----------
 
+
+
  ///.update will change object values
  // myEndPoint.on("value", function(snapshot){
-     //$element.text(snapshot.val().wallet.currency)
-//  })
+ //$element.text(snapshot.val().wallet.currency)
+ //  })
