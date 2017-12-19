@@ -2,32 +2,37 @@ body {
     background: #005A31;
     font-family: 'Josefin Sans', sans-serif;
 }
+
 h3 {
     font-size: 18px;
 }
-#headerRow{
-    margin:0;
+
+#headerRow {
+    margin: 0;
 }
+
 #header {
     background: rgb(120, 145, 21);
     border-color: #F3FAB6;
-    /* padding-bottom: 15px; */
+    border-radius: 10px;
     margin: 0px;
 }
 
 #headFont {
     color: rgb(2, 70, 38);
     font-size: 40px;
+    text-align: center;
 }
+
 .footer {
     background: rgb(120, 145, 21);
 }
+
 #tm {
     color: black;
     text-align: center;
     font-size: 25px;
     padding-top: 20px;
-    
 }
 
 #game {
@@ -56,11 +61,6 @@ img {
     height: 75px;
 }
 
-/* .icon {
-    border: 1px solid black;   
-    text-align: center; 
-} */
-
 .currencyName {
     font-size: 20px;
 }
@@ -68,18 +68,68 @@ img {
 .currencylogo {
     padding-top: 10px;
     height: auto;
-    width: 45%;
-}   
+    width: 95%;
+}
 
 .col {
-    border: 1px solid black;
     height: 100%;
 }
+
 .market {
     display: flex;
     flex-direction: column;
     justify-content: space-between
 }
+
 .buy {
     padding: 2px;
 }
+
+.value {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+
+#LBtag {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#LBtext {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 20px;
+    color: lightblue;
+}
+
+#proText {
+    font-size: 20px;
+    color: lightblue;
+}
+
+#headDesc {
+    color: lightblue;
+    font-size: 20px;
+}
+
+.headDescDiv {
+    text-align: center;
+}
+.price {
+    font-size: 25px;
+}
+.grow {
+    font-size: 25px;
+}
+#pageTitle {
+    font-size: 50px;
+}
+.user-view {
+    background-color: lightslategrey;
+}
+
+/* here down is leaderboard specific styling
+(could have some overlap, but that shouldn't matter) */
+
