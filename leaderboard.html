@@ -5,7 +5,7 @@
 <head>
     <title>Cyrptocurrency Exchange!</title>
     <meta charset="utf-8">
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
@@ -13,104 +13,128 @@
 </head>
 
 <body>
-    <div class="row">
-        <div class="container">
-            <div class="col-md-12" id="navbar">
-                <nav class="navbar navbar-default navbar-fixed-top">
-                    <div class="container">
-                        <h1 id="headFont">Cryptocurrency Leaderboard</h1>
-                    </div>
-
-                </nav>
-            </div>
-            <ul id="slide-out" class="side-nav">
-                <li>
-                    <div class="user-view">
-                        <div class="background">
-                            <!-- Potential Profile Picture -->
-                            <!-- <img src="images/office.jpg"> -->
-                            <!-- Begin login system -->
-                        </div>
-                        <input id="txtEmail" type="email" placeholder="Email">
-
-                        <input id="txtPassword" type="password" placeholder="Password">
-
-                        <button class="btn waves-effect waves-green" id="btnLogin" class="btn btn-action">
-                            Log in
-                        </button>
-
-                        <button class="btn waves-effect waves-green" id="btnSignUp" class="btn btn-secondary">
-                            Sign Up
-                        </button>
-
-                        <button class="btn waves-effect waves-green" id="btnLogout" class="btn btn-hide">
-                            Log out
-                        </button>
-                        <!-- End login system -->
-                    </div>
-                </li>
-                <!-- Wallet including profile information -->
-                <li>
-                    <h4>Cryptocurrency Wallet</h4>
-                </li>
-
-                <li>
-                    <div class="divider"></div>
-                </li>
-                <li>
-                    <p>Name</p>
-                </li>
-                <li>
-                    <p>Cash</p>
-                </li>
-                <li>
-                    <p>Currency</p>
-                    <li>Bit Coin</li>
-                    <li>Ethereum</li>
-                    <li>Lite Coin</li>
-                </li>
-            </ul>
-            <a href="#" data-activates="slide-out" class="button-collapse">
-                <i class="material-icons">Cryptocurrency Profile</i>
-            </a>
-
-            <a href="index.html">Home</a>
-
-        </div>
-    </div>
-
-
     <div class="container">
-        <div id="game">
-            <h2>Leaderboard</h2>
-            <ul>
-                <li>1. Michael</li>
-                <li>1. Michael</li>
-                <li>1. Michael</li>
-                <li>1. Michael</li>
-                <li>1. Michael</li>
-            </ul>
+        <div class="row" id="headerRow">
+            <div class="col s12" id="header">
+                <h1 id="headFont">
+                    <i class="material-icons small">attach_money</i>
+                    <i class="material-icons small">attach_money</i>
+                    <span id="pageTitle">Cryptocurrency Exchange!</span>
+                    <i class="material-icons small">attach_money</i>
+                    <i class="material-icons small">attach_money</i>
+                </h1>
+            </div>
         </div>
+        <ul id="slide-out" class="side-nav">
+            <li>
+                <div class="user-view">
+                    <div class="background">
+                        <!-- Potential Profile Picture -->
+                        <!-- <img src="images/office.jpg"> -->
+                        <!-- Begin login system -->
+                    </div>
+                    <input id="txtEmail" type="email" placeholder="Email">
+
+                    <input id="txtPassword" type="password" placeholder="Password">
+
+                    <button class="btn waves-effect waves-green" id="btnLogin" class="btn btn-action">
+                        Log in
+                    </button>
+
+                    <button class="btn waves-effect waves-green" id="btnSignUp" class="btn btn-secondary">
+                        Sign Up
+                    </button>
+
+                    <button class="btn waves-effect waves-green" id="btnLogout" class="btn btn-hide">
+                        Log out
+                    </button>
+                    <!-- End login system -->
+                </div>
+                <!-- Wallet including profile information -->
+
+            </li>
+            <li>
+
+                <h5>
+                    <i class="material-icons small">account_balance_wallet</i>Cryptocurrency Wallet</h5>
+            </li>
+
+            <li>
+                <div class="divider"></div>
+            </li>
+            <li>
+                <p id="username"></p>
+            </li>
+            <li>
+                <p id="cash">
+                    <i class="material-icons small">attach_money</i>Cash</p>
+            </li>
+            <li>
+                <p>
+                    <i class="material-icons small">credit_card</i>Currency</p>
+                <li id="btc">
+                    <i class="material-icons small">copyright</i>BitCoin</li>
+                <li id="eth">
+                    <i class="material-icons small">copyright</i>Ethereum</li>
+                <li id="ltc">
+                    <i class="material-icons small">copyright</i>LiteCoin</li>
+            </li>
+        </ul>
     </div>
 
-    <nav class="navbar navbar-default">
+    <div class="navDiv container">
+        <div class="row">
+            <div class="col s2">
+                <a href="#" data-activates="slide-out" class="button-collapse">
+                    <i class="material-icons medium">account_box </i>
+                </a>
+                <div>
+                    <span id="proText">Profile</span>
+                </div>
+            </div>
+            <div class="col s8 headDescDiv">
+                <span id="headDesc">Welcome to CryptoCurrency simulator! Create a profile, and start investing! Think you have what it takes
+                    to top the leaderboards and become rich with crypto cash?
+                    <span>
+            </div>
 
-        <div class="container">
-            <h4>&copy;Victorious Secret</h4>
-        </div>
-    </nav>
+            <div class="col s2">
+                <a id="LBtag" href="index.html">
+                    <i class="material-icons medium">assessment </i>
+                </a>
+                <span id="LBtext">Home</span>
+            </div>
+            </div>
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    <script src="assets/javascript/app.js"></script>
-    <script>
-        // Initialize collapse button
-        $(".button-collapse").sideNav();
-        // Initialize collapsible (uncomment the line below if you use the dropdown variation)
-        $('.collapsible').collapsible();
-    </script>
+
+            <div class="container">
+                <div id="game">
+                    <h2>Leaderboard</h2>
+                    <ul>
+                        <li>1. Michael</li>
+                        <li>1. Michael</li>
+                        <li>1. Michael</li>
+                        <li>1. Michael</li>
+                        <li>1. Michael</li>
+                    </ul>
+                </div>
+            </div>
+
+            <nav class="footer">
+                    <h4 id="tm">&copy;Victorious Secret</h4>
+                </nav>
+
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+            <script src="assets/javascript/app.js"></script>
+            <script>
+                // Initialize collapse button
+                $(".button-collapse").sideNav();
+                // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+                $('.collapsible').collapsible();
+            </script>
 
 </body>
 
