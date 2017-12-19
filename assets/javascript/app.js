@@ -102,9 +102,12 @@
  //---------------Login System------------
  //--------------API information----------
  var btcBuy = $("#btcBuy");
+ var btcSell = $("#btcSell");
  var ethBuy = $("#ethBuy");
+ var ethSell = $("#ethSell");
  var ltcBuy = $("#ltcBuy");
- 
+ var ltcSell = $("#ltcSell");
+
 
  //BTC API
  var btcQueryUrl = "https://api.coinmarketcap.com/v1/ticker/bitcoin/";
@@ -115,7 +118,7 @@
  }).done(function (bitcoin) {
      // console.log("bitcoin" ,bitcoin);
      //Adding the bitcoin information
-     btcBuy.on("click", function(e) {
+     btcBuy.on("click", function (e) {
          e.preventDefault();
          var userPurchase = $("#btcBuyText").val();
          userPurchase = parseInt(userPurchase);
@@ -140,12 +143,30 @@
              console.log("No");
              //Need to find a way to alert the user their purchase is invalid
          }
-     });
+     })
      btcSell.on("click", function (e) {
-        e.preventDefault;
-       var userSale = $("#btcBuyText").val();
+         e.preventDefault();
+         var userSale = $("#btcSellText").val();
+         userSale = parseInt(userSale);
+         console.log(`Cash given: ${userSale}`);
+         var transactionFee = 0.05 * userSale;
+         userSale = userSale - transactionFee;
+         //log conversion of usd to coin
+         var btcSold = userSale / bitcoin[0].price_usd;
+         console.log(btcSold);
+         $("#btcSellText").val("");
 
-    });
+         if(userSale <= cash){
+             cash = cash + userSale;
+             btc = btc - btcSold;
+             myEndPoint.update({
+                "wallet/currBTC": btc,
+                "wallet/currUSD": cash
+            })
+         }else {
+             console.log("No");
+         }
+     });
      $("#btcPrice").text(`Current Price: $${bitcoin[0].price_usd}`);
      $("#btcGrow").text(`Change over the past 24hrs: ${bitcoin[0].percent_change_24h}%`);
 
@@ -186,9 +207,32 @@
              //Need to find a way to alert the user their purchase is invalid
          }
      });
+     ethSell.on("click", function (e) {
+        e.preventDefault();
+        var userSale = $("#ethSellText").val();
+        userSale = parseInt(userSale);
+        console.log(`Cash given: ${userSale}`);
+        var transactionFee = 0.05 * userSale;
+        userSale = userSale - transactionFee;
+        //log conversion of usd to coin
+        var ethSold = userSale / ethereum[0].price_usd;
+        console.log(ethSold);
+        $("#ethSellText").val("");
+
+        if(userSale <= cash){
+            cash = cash + userSale;
+            eth = eth - ethSold;
+            myEndPoint.update({
+               "wallet/currETH": eth,
+               "wallet/currUSD": cash
+           })
+        }else {
+            console.log("No");
+        }
+    });
      $("#ethPrice").text(`Current Price: $${ethereum[0].price_usd}`);
      $("#ethGrow").text(`Change over the past 24hrs: ${ethereum[0].percent_change_24h}%`);
- })
+ });
 
  //LTC API
  var ltcQueryUrl = "https://api.coinmarketcap.com/v1/ticker/litecoin/";
@@ -226,6 +270,29 @@
          }
 
      })
+     ltcSell.on("click", function (e) {
+        e.preventDefault();
+        var userSale = $("#ltcSellText").val();
+        userSale = parseInt(userSale);
+        console.log(`Cash given: ${userSale}`);
+        var transactionFee = 0.05 * userSale;
+        userSale = userSale - transactionFee;
+        //log conversion of usd to coin
+        var ltcSold = userSale / litecoin[0].price_usd;
+        console.log(ltcSold);
+        $("#ltcSellText").val("");
+
+        if(userSale <= cash){
+            cash = cash + userSale;
+            ltc = ltc - ltcSold;
+            myEndPoint.update({
+               "wallet/currLTC": ltc,
+               "wallet/currUSD": cash
+           })
+        }else {
+            console.log("No");
+        }
+    });
      $("#ltcPrice").text(`Current Price: $${litecoin[0].price_usd}`);
      $("#ltcGrow").text(`Change over the past 24hrs: ${litecoin[0].percent_change_24h}%`);
  })
