@@ -62,6 +62,10 @@
      firebase.auth().signOut();
  })
  var myEndPoint;
+ var btc;
+ var eth;
+ var ltc;
+ var cash;
  //Add realtime listener
  firebase.auth().onAuthStateChanged(firebaseUser => { //Also holy sh*t you can use => for functions
      if (firebaseUser) {
@@ -79,10 +83,10 @@
          myEndPoint.on("value", function (snapshot) {
              console.log(snapshot.val());
              var userInfo = snapshot.val();
-             var btc = userInfo.wallet.currBTC;
-             var eth = userInfo.wallet.currETH;
-             var ltc = userInfo.wallet.currLTC;
-             var cash = userInfo.wallet.currUSD;
+             btc = userInfo.wallet.currBTC;
+             eth = userInfo.wallet.currETH;
+             ltc = userInfo.wallet.currLTC;
+             cash = userInfo.wallet.currUSD;
              //add values to sidebar profile
              userBtc.text(`Bitcoin: ${btc}`);
              userEth.text(`Ethereum: ${eth}`);
@@ -102,7 +106,7 @@
  var ltcBuy = $("#ltcBuy");
  var btcTextbox = $("#btcBuyText").val();
  var ethTextbox = $("#ethBuyText").val();
- 
+
  //BTC API
  var btcQueryUrl = "https://api.coinmarketcap.com/v1/ticker/bitcoin/";
 
@@ -132,7 +136,7 @@
 
  //LTC API
  var ltcQueryUrl = "https://api.coinmarketcap.com/v1/ticker/litecoin/";
-// var currltcPrice;
+ // var currltcPrice;
  $.ajax({
      url: ltcQueryUrl,
      method: "GET"
@@ -140,20 +144,33 @@
      // console.log(litecoin);
      //Adding the litecoin information
      var currltcPrice = litecoin[0].price_usd;
-     ltcBuy.on("click", function(e){
+     ltcBuy.on("click", function buyCoin(e) {
          e.preventDefault;
          var userPurchase = $("#ltcBuyText").val();
-
-         console.log(currltcPrice);
          ltcTextbox = parseInt(userPurchase);
-         console.log(ltcTextbox);
-         //take 5% of paid amount
-         // 5% * usd amount = remaining amount
+         console.log(`Cash taken: ${ltcTextbox}`);
          var transactionFee = 0.05 * ltcTextbox;
          userPurchase = userPurchase - transactionFee;
-         console.log(userPurchase);
-         //exchange rate * amount of bitcoins = 200 USD/BTC * 0.005 BTC = 200 USD * 0.005 = 1 USD
-         //USD / exchange rate = remainder of ltc
+         console.log(`Cash after transaction fee: ${userPurchase}`);
+         var ltcBought = userPurchase / litecoin[0].price_usd;
+         console.log(`LTC Bought: ${ltcBought}`);
+         $("#ltcBuyText").val("");
+         //Get user's current USD amount, current coin amount
+         if (userPurchase <= cash) {
+             cash = cash - userPurchase
+             ltc = ltc + ltcBought
+             console.log(cash);
+             console.log(ltc);
+         } else {
+             console.log("No");
+         }
+         myEndPoint.update({
+            wallet: {
+                ltc: ltc,
+            }
+        })
+         //add new coins to current user's coin
+         //set items to the database (without overwriting other coins)
      })
      $("#ltcPrice").text(`Current Price: $${litecoin[0].price_usd}`);
      $("#ltcGrow").text(`Change over the past 24hrs: ${litecoin[0].percent_change_24h}%`);
