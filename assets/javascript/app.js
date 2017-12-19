@@ -88,10 +88,10 @@
              ltc = userInfo.wallet.currLTC;
              cash = userInfo.wallet.currUSD;
              //add values to sidebar profile
-             userBtc.text(`Bitcoin: ${btc}`);
-             userEth.text(`Ethereum: ${eth}`);
-             userLtc.text(`Litecoin: ${ltc}`);
-             userCash.text(`Cash (USD): ${cash}`);
+             userBtc.text(btc);
+             userEth.text(eth);
+             userLtc.text(ltc);
+             userCash.text(cash);
          });
      } else {
          console.log("not logged in");
@@ -102,10 +102,9 @@
  //---------------Login System------------
  //--------------API information----------
  var btcBuy = $("#btcBuy");
- var ethBuy = $("#ethbuy");
+ var ethBuy = $("#ethBuy");
  var ltcBuy = $("#ltcBuy");
- var btcTextbox = $("#btcBuyText").val();
- var ethTextbox = $("#ethBuyText").val();
+ 
 
  //BTC API
  var btcQueryUrl = "https://api.coinmarketcap.com/v1/ticker/bitcoin/";
@@ -116,6 +115,37 @@
  }).done(function (bitcoin) {
      // console.log("bitcoin" ,bitcoin);
      //Adding the bitcoin information
+     btcBuy.on("click", function(e) {
+         e.preventDefault();
+         var userPurchase = $("#btcBuyText").val();
+         userPurchase = parseInt(userPurchase);
+         console.log(`Cash taken: ${userPurchase}`);
+         var transactionFee = 0.05 * userPurchase;
+         userPurchase = userPurchase - transactionFee;
+         console.log(`Cash after transaction fee: ${userPurchase}`);
+         var btcBought = userPurchase / bitcoin[0].price_usd;
+         console.log(`Btc Bought: ${btcBought}`);
+         $("#btcBuyText").val("");
+
+         if (userPurchase <= cash) {
+             cash = cash - userPurchase
+             btc = btc + btcBought
+             console.log(cash);
+             console.log(btc);
+             myEndPoint.update({
+                 "wallet/currBTC": btc,
+                 "wallet/currUSD": cash
+             })
+         } else {
+             console.log("No");
+             //Need to find a way to alert the user their purchase is invalid
+         }
+     });
+     btcSell.on("click", function (e) {
+        e.preventDefault;
+       var userSale = $("#btcBuyText").val();
+
+    });
      $("#btcPrice").text(`Current Price: $${bitcoin[0].price_usd}`);
      $("#btcGrow").text(`Change over the past 24hrs: ${bitcoin[0].percent_change_24h}%`);
 
@@ -130,6 +160,32 @@
  }).done(function (ethereum) {
      // console.log(ethereum);
      //Adding the ethereum information
+     ethBuy.on("click", function (e) {
+         e.preventDefault();
+         var userPurchase = $("#ethBuyText").val();
+         userPurchase = parseInt(userPurchase);
+         console.log(`Cash taken: ${userPurchase}`);
+         var transactionFee = 0.05 * userPurchase;
+         userPurchase = userPurchase - transactionFee;
+         console.log(`Cash after transaction fee: ${userPurchase}`);
+         var ethBought = userPurchase / ethereum[0].price_usd;
+         console.log(`Eth Bought: ${ethBought}`);
+         $("#ethBuyText").val("");
+
+         if (userPurchase <= cash) {
+             cash = cash - userPurchase
+             eth = eth + ethBought
+             console.log(cash);
+             console.log(eth);
+             myEndPoint.update({
+                 "wallet/currETH": eth,
+                 "wallet/currUSD": cash
+             })
+         } else {
+             console.log("No");
+             //Need to find a way to alert the user their purchase is invalid
+         }
+     });
      $("#ethPrice").text(`Current Price: $${ethereum[0].price_usd}`);
      $("#ethGrow").text(`Change over the past 24hrs: ${ethereum[0].percent_change_24h}%`);
  })
@@ -143,34 +199,32 @@
  }).done(function (litecoin) {
      // console.log(litecoin);
      //Adding the litecoin information
-     var currltcPrice = litecoin[0].price_usd;
-     ltcBuy.on("click", function buyCoin(e) {
-         e.preventDefault;
+     ltcBuy.on("click", function (e) {
+         e.preventDefault();
          var userPurchase = $("#ltcBuyText").val();
-         ltcTextbox = parseInt(userPurchase);
-         console.log(`Cash taken: ${ltcTextbox}`);
-         var transactionFee = 0.05 * ltcTextbox;
+         userPurchase = parseInt(userPurchase);
+         console.log(`Cash taken: ${userPurchase}`);
+         var transactionFee = 0.05 * userPurchase;
          userPurchase = userPurchase - transactionFee;
          console.log(`Cash after transaction fee: ${userPurchase}`);
          var ltcBought = userPurchase / litecoin[0].price_usd;
          console.log(`LTC Bought: ${ltcBought}`);
          $("#ltcBuyText").val("");
-         //Get user's current USD amount, current coin amount
+
          if (userPurchase <= cash) {
              cash = cash - userPurchase
              ltc = ltc + ltcBought
              console.log(cash);
              console.log(ltc);
+             myEndPoint.update({
+                 "wallet/currLTC": ltc,
+                 "wallet/currUSD": cash
+             })
          } else {
              console.log("No");
+             //Need to find a way to alert the user their purchase is invalid
          }
-         myEndPoint.update({
-            wallet: {
-                ltc: ltc,
-            }
-        })
-         //add new coins to current user's coin
-         //set items to the database (without overwriting other coins)
+
      })
      $("#ltcPrice").text(`Current Price: $${litecoin[0].price_usd}`);
      $("#ltcGrow").text(`Change over the past 24hrs: ${litecoin[0].percent_change_24h}%`);

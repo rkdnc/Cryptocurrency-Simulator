@@ -129,7 +129,9 @@ img {
 .user-view {
     background-color: lightslategrey;
 }
-
+.profileCurr {
+    padding-left: 10px;
+}
 /* here down is leaderboard specific styling
 (could have some overlap, but that shouldn't matter) */
 
